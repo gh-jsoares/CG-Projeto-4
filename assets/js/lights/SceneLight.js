@@ -32,4 +32,8 @@ class SceneLight {
     createLight(x, y, z) {
 
     }
+
+    reset() {
+        this.light.visible = true
+    }
 }

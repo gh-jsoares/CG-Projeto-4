@@ -4,7 +4,7 @@ const ORTHO_NEAR = 7
 const ORTHO_FAR = 23
 const PERSC_NEAR = 0.1
 const PERSC_FAR = 150
-const FRUSTUM_SIZE = 15
+const FRUSTUM_SIZE = 20
 const FOV = 75
 
 class CameraManager {
@@ -18,8 +18,8 @@ class CameraManager {
 
         this.cameras[0].position.set(50, 30, 20)
         this.cameras[0].lookAt(0, 0, 0)
-        this.cameras[1].position.y = 14
-        this.cameras[1].lookAt(-23, 14, 0)
+        this.cameras[1].position.z = 290
+        this.cameras[1].lookAt(0, 0, 0)
 
         this.switchView(0)
         this.registerEvents()

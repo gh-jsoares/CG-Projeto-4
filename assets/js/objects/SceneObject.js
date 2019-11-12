@@ -29,7 +29,6 @@ class SceneObject {
         this.objGroup.traverse((c) => {
             if(c instanceof THREE.Mesh) c.material.wireframe = !c.material.wireframe
         })
-        //this.objGroup.material.wireframe = !this.objGroup.material.wireframe
     }
 
     toggleLightCalculations() {
@@ -45,12 +44,18 @@ class SceneObject {
     }
 
     reset() {
-        
+        this.materialType = 1
+        this.prevMaterialType = 0
+        this.wireframe = false
+        this.updateMaterial()
     }
 
     updateMaterial() {
+        if(this.objGroup.material)
+            this.objGroup.material.wireframe = this.wireframe
         this.objGroup.traverse((child) => {
             child.material = this.materials[this.materialType].body
+            child.material.wireframe = this.wireframe
         })
     }
 }

@@ -47,6 +47,7 @@ class Ball extends SceneObject {
     }
 
     reset() {
+        super.reset()
         this.objGroup.position.set(0, 0, 0)
         this.ball.rotation.x = 0
         this.objGroup.rotation.y = 0

@@ -17,6 +17,7 @@ class GraphicApp {
         this.sceneManager.addObject(new Board(0, 0, 0))
         this.sceneManager.addObject(new Dice(0, 3, 0))
         this.sceneManager.addObject(new Ball(14, 3.5, 0))
+        this.sceneManager.addObject(new Wall(0, 0, 280))
 
         this.controls = new THREE.OrbitControls(this.getCamera(), this.renderer.domElement)
 

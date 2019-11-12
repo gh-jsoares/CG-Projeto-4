@@ -44,6 +44,7 @@ class Dice extends SceneObject {
     }
 
     reset() {
+        super.reset()
         this.objGroup.rotation.y =0
     }
 

@@ -3,7 +3,6 @@
 class SceneManager {
     constructor() {
         this.activeScene = new THREE.Scene()
-        this.activeScene.add(new THREE.AxesHelper(100))
 
         this.objects = []
         this.lights = []
@@ -43,6 +42,7 @@ class SceneManager {
 
     reset() {
         this.objects.forEach((obj) => obj.reset())
+        this.lights.forEach((l) => l.reset())
     }
 
     update(deltatime) {
