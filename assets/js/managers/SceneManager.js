@@ -16,11 +16,10 @@ class SceneManager {
             if (e.keyCode == 87) // w
                 this.objects.forEach((obj) => obj.toggleWireframe())
 
-            if (e.keyCode == 76) // l
+                if (e.keyCode == 76) // l
                 this.objects.forEach((obj) => obj.toggleLightCalculations())
         })
     }
-    
 
     addObject(object) {
         this.objects.push(object)
@@ -40,6 +39,10 @@ class SceneManager {
     removeLight(light) {
         light.removeFromScene(this.getActiveScene())
         this.lights = this.lights.filter((l) => l != light)
+    }
+
+    reset() {
+        this.objects.forEach((obj) => obj.reset())
     }
 
     update(deltatime) {

@@ -27,13 +27,6 @@ class CameraManager {
     }
 
     registerEvents() {
-        window.addEventListener('keydown', (e) => {
-            if (e.keyCode >= 53 && e.keyCode <= 54) {
-                let view = e.keyCode - 53
-                this.switchView(view)
-            }
-        })
-
         window.addEventListener('resize', this.resize.bind(this))
     }
 

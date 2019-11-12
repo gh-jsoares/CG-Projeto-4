@@ -20,15 +20,43 @@ class GraphicApp {
 
         this.controls = new THREE.OrbitControls(this.getCamera(), this.renderer.domElement)
 
+        this.paused = false
+
+        this.registerEvents()
         this.update()
+    }
+
+    registerEvents() {
+        window.addEventListener('keydown', (e) => {
+            if (e.keyCode == 83) // s
+                this.togglePause()
+            if (e.keyCode == 82 && this.paused) // s
+                this.reset()
+        })
+    }
+    
+    reset() {
+        this.sceneManager.reset()
+        this.togglePause()
+    }
+
+    togglePause() {
+        this.paused = !this.paused
+
+        if(this.paused)
+            this.cameraManager.switchView(1)
+        else
+            this.cameraManager.switchView(0)
     }
 
     update() {
         this.renderer.setClearColor(0xDFE6E9)
         let deltatime = this.clock.getDelta()
 
-        this.controls.update()
-        this.sceneManager.update(deltatime)
+        if(!this.paused) {
+            this.controls.update()
+            this.sceneManager.update(deltatime)
+        }
 
         this.render()
         requestAnimationFrame(this.update.bind(this))
