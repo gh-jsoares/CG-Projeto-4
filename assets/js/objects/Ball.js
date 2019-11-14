@@ -23,7 +23,8 @@ class Ball extends SceneObject {
             {
                 body: new THREE.MeshBasicMaterial({
                     color: 0xFF5252,
-                    wireframe: false
+                    wireframe: false,
+                    map: texture
                 }),
             },
             {

@@ -12,10 +12,7 @@ class Dice extends SceneObject {
 
         this.materials = [
             {
-                body: new THREE.MeshBasicMaterial({
-                    color: 0x34ACE0,
-                    wireframe: false
-                }),
+                body: []
             },
             {
                 body: []
@@ -25,13 +22,22 @@ class Dice extends SceneObject {
         for (let i = 1; i <= 6; i++) {
             let texture = Utils.loadTexture(`assets/img/dice/${i}_texture.png`)
             let bump = Utils.loadTexture(`assets/img/dice/${i}_bump.png`)
-            let material = new THREE.MeshPhongMaterial({
+            
+            let material_0 = new THREE.MeshBasicMaterial({
+                color: 0x34ACE0,
+                wireframe: false,
+                map: texture
+            })
+
+            let material_1 = new THREE.MeshPhongMaterial({
                 color: 0xFFFFFF,
                 wireframe: false,
                 map: texture,
                 bumpMap: bump
             })
-            this.materials[1].body.push(material)
+
+            this.materials[0].body.push(material_0)
+            this.materials[1].body.push(material_1)
         }
 
         let geometry = new THREE.BoxGeometry(Dice.WIDTH, Dice.WIDTH, Dice.WIDTH)
