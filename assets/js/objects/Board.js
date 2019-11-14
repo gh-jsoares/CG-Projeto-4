@@ -19,7 +19,7 @@ class Board extends SceneObject {
         this.materials = [
             {
                 body: new THREE.MeshBasicMaterial({
-                    color: 0xCD6133,
+                    color: 0xFFFFFF,
                     wireframe: false,
                     map: texture
                 }),

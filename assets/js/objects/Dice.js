@@ -24,7 +24,7 @@ class Dice extends SceneObject {
             let bump = Utils.loadTexture(`assets/img/dice/${i}_bump.png`)
             
             let material_0 = new THREE.MeshBasicMaterial({
-                color: 0x34ACE0,
+                color: 0xFFFFFF,
                 wireframe: false,
                 map: texture
             })
