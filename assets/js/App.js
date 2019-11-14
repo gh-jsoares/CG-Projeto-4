@@ -2,9 +2,8 @@
 
 class GraphicApp {
     constructor() {
-        this.renderer = new THREE.WebGLRenderer({ antialias: true })
+        this.renderer = new THREE.WebGLRenderer({ antialias: true, canvas: app})
         this.renderer.setSize(window.innerWidth, window.innerHeight)
-        document.body.appendChild(this.renderer.domElement)
         
         this.clock = new THREE.Clock()
         
@@ -34,6 +33,10 @@ class GraphicApp {
                 this.reset()
         })
     }
+
+    toggleControls() {
+        document.getElementById('controls').style.display = this.paused ? 'none' : 'block'
+    }
     
     reset() {
         this.sceneManager.reset()
@@ -42,6 +45,7 @@ class GraphicApp {
 
     togglePause() {
         this.paused = !this.paused
+        this.toggleControls()
 
         if(this.paused)
             this.cameraManager.switchView(1)

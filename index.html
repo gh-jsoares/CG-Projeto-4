@@ -8,6 +8,45 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body onload="new GraphicApp()">
+    <canvas id="app"></canvas>
+
+    <div id="controls">
+        <h1>Controls</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>b</strong></td>
+                    <td>Toggle Ball Movement</td>
+                </tr>
+                <tr>
+                    <td><strong>d</strong></td>
+                    <td>Toggle Directional Light</td>
+                </tr>
+                <tr>
+                    <td><strong>l</strong></td>
+                    <td>Toggle Point Light</td>
+                </tr>
+                <tr>
+                    <td><strong>w</strong></td>
+                    <td>Toggle Wireframe</td>
+                </tr>
+                <tr>
+                    <td><strong>s</strong></td>
+                    <td>Toggle Pause</td>
+                </tr>
+                <tr>
+                    <td><strong>r</strong></td>
+                    <td>Restart Simulation When Paused</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <script src="assets/js/lib/three.js"></script>
     <script src="assets/js/lib/OrbitControls.js"></script>
