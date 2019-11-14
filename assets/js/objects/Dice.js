@@ -51,11 +51,4 @@ class Dice extends SceneObject {
     update(deltatime) {
         this.objGroup.rotation.y += deltatime * 1
     }
-
-    toggleWireframe() {
-        if(this.box.material instanceof Array)
-            this.box.material.forEach((m) => m.wireframe = !m.wireframe)
-        else
-            this.box.material.wireframe = !this.box.material.wireframe
-    }
 }

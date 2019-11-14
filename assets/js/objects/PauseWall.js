@@ -1,6 +1,6 @@
 'use strict'
 
-class Wall extends SceneObject {
+class PauseWall {
 
     static get WIDTH() {
         return 1
@@ -14,8 +14,9 @@ class Wall extends SceneObject {
         return 28.125
     }
 
-    constructor(x, y, z) {
-        super(x, y, z)
+    constructor(scene, x, y, z) {
+        this.objGroup = new THREE.Object3D()
+        this.objGroup.position.set(x, y, z)
         
         let texture = Utils.loadTexture('assets/img/pause/texture.png')
 
@@ -25,21 +26,10 @@ class Wall extends SceneObject {
                             map: texture
                         })
 
-        let geometry = new THREE.BoxGeometry(Wall.LENGTH, Wall.HEIGHT, Wall.WIDTH)
+        let geometry = new THREE.BoxGeometry(PauseWall.LENGTH, PauseWall.HEIGHT, PauseWall.WIDTH)
         let mesh = new THREE.Mesh(geometry, material)
 
         this.objGroup.add(mesh)
-    }
-
-    toggleWireframe() {
-
-    }
-
-    toggleLightCalculations() {
-
-    }
-
-    reset() {
-        
+        scene.add(this.objGroup)
     }
 }

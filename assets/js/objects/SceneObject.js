@@ -26,9 +26,23 @@ class SceneObject {
     }
 
     toggleWireframe() {
-        this.objGroup.traverse((c) => {
-            if(c instanceof THREE.Mesh) c.material.wireframe = !c.material.wireframe
-        })
+        this.wireframe = !this.wireframe
+        this.updateWireframe()
+    }
+
+    updateWireframe() {
+        if(this.materials instanceof Array) {
+            this.materials.forEach((mat) => {
+                let body = mat.body
+                if(body instanceof Array) {
+                    body.forEach((m) => {
+                        m.wireframe = this.wireframe
+                    })
+                } else {
+                    body.wireframe = this.wireframe
+                }
+            })
+        }
     }
 
     toggleLightCalculations() {
@@ -51,6 +65,8 @@ class SceneObject {
     }
 
     updateMaterial() {
+        this.updateWireframe()
+        
         if(this.objGroup.material)
             this.objGroup.material.wireframe = this.wireframe
         this.objGroup.traverse((child) => {

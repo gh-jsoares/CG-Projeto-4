@@ -8,6 +8,7 @@ class SceneManager {
         this.lights = []
 
         this.registerEvents()
+        this.createPauseWall()
     }
     
     registerEvents() {
@@ -18,6 +19,10 @@ class SceneManager {
                 if (e.keyCode == 76) // l
                 this.objects.forEach((obj) => obj.toggleLightCalculations())
         })
+    }
+
+    createPauseWall() {
+        this.pauseWall = new PauseWall(this.getActiveScene(), 0, 0, 280)
     }
 
     addObject(object) {
