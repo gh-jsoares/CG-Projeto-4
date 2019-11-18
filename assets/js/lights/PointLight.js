@@ -7,7 +7,7 @@ class PointLight extends SceneLight {
     }
 
     createLight(x, y, z) {
-        this.light = new THREE.PointLight(0xFFFFFF, 4, 0)
+        this.light = new THREE.PointLight(0xFFFFFF, 1, 0)
         this.light.position.set(x, y, z)
     }
 }

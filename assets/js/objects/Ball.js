@@ -11,7 +11,7 @@ class Ball extends SceneObject {
     }
 
     static get ACCEL() {
-        return 1
+        return 2
     }
 
     constructor(x, y, z) {
