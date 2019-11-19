@@ -11,13 +11,13 @@ class GraphicApp {
         this.cameraManager = new CameraManager(this.renderer)
 
         this.sceneManager.addLight(new DirectionalLight(10, 18, 0))
-        this.sceneManager.addLight(new PointLight(7, 7, 0))
+        this.sceneManager.addLight(new PointLight(7, 3, 0))
         
         this.sceneManager.addObject(new Board(0, 0, 0))
         this.sceneManager.addObject(new Dice(0, 3, 0))
         this.sceneManager.addObject(new Ball(14, 3.5, 0))
 
-        //this.controls = new THREE.OrbitControls(this.getCamera(), this.renderer.domElement)
+        this.controls = new THREE.OrbitControls(this.getCamera(), this.renderer.domElement)
 
         this.paused = false
 
@@ -29,7 +29,7 @@ class GraphicApp {
         window.addEventListener('keydown', (e) => {
             if (e.keyCode == 83) // s
                 this.togglePause()
-            if (e.keyCode == 82 && this.paused) // s
+            if (e.keyCode == 82 && this.paused) // r
                 this.reset()
         })
     }
@@ -58,7 +58,7 @@ class GraphicApp {
         let deltatime = this.clock.getDelta()
 
         if(!this.paused) {
-            //this.controls.update()
+            this.controls.update()
             this.sceneManager.update(deltatime)
         }
 

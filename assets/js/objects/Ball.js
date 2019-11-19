@@ -32,7 +32,8 @@ class Ball extends SceneObject {
                     color: 0xFFFFFF,
                     wireframe: false,
                     map: texture,
-                    shininess: 100
+                    //shininess: 1000,
+                    specular: 0xFFFFFF
                 })
             }
         ]
@@ -68,9 +69,8 @@ class Ball extends SceneObject {
 
     registerEvents() {
         window.addEventListener('keydown', (e) => {
-            if (e.keyCode == 66) { // b
+            if (e.keyCode == 66) // b
                 this.stop = !this.stop
-            }
         })
     }
 }
